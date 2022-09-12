@@ -7,6 +7,9 @@ export const conversationsApi = apiSlice.injectEndpoints({
       query: (email) =>
         `/conversations?participants_like=${email}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
     }),
+    // getAllConversations: builder.query({
+    //   query: () => "/conversations",
+    // }),
     getConversation: builder.query({
       query: ({ userEmail, participantEmail }) =>
         `/conversations?participants_like=${userEmail}-${participantEmail}&&participants_like=${participantEmail}-${userEmail}`,
@@ -18,9 +21,17 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        // optimistic cache update start
-
-        // optimistic cache update end
+        //* optimistic cache update start
+        // const patchResult2 = dispatch(
+        //   apiSlice.util.updateQueryData(
+        //     "getAllConversations",
+        //     undefined,
+        //     (draft) => {
+        //       draft.push(arg.data);
+        //     }
+        //   )
+        // );
+        //* optimistic cache update end
 
         try {
           const conversation = await queryFulfilled;
@@ -43,7 +54,9 @@ export const conversationsApi = apiSlice.injectEndpoints({
               })
             );
           }
-        } catch (err) {}
+        } catch (err) {
+          // patchResult2.undo();
+        }
       },
     }),
     editConversation: builder.mutation({
@@ -53,7 +66,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        // optimistic cache update start
+        //* optimistic cache update start
         const patchResult1 = dispatch(
           apiSlice.util.updateQueryData(
             "getConversations",
@@ -65,7 +78,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
             }
           )
         );
-        // optimistic cache update end
+        //* optimistic cache update end
 
         try {
           const conversation = await queryFulfilled;
@@ -78,7 +91,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
             const recieverUser = users.find(
               (user) => user.email !== arg.sender
             );
-            dispatch(
+            const res = await dispatch(
               messagesApi.endpoints.addMessage.initiate({
                 conversationId: conversation?.data.id,
                 sender: senderUser,
@@ -86,7 +99,20 @@ export const conversationsApi = apiSlice.injectEndpoints({
                 message: arg.data.message,
                 timestamp: arg.data.timestamp,
               })
+            ).unwrap();
+            // console.log(res)
+
+            //* update messages cache pessimistically start
+            dispatch(
+              apiSlice.util.updateQueryData(
+                "getMessages",
+                res.conversationId.toString(),
+                (draft) => {
+                  draft.push(res);
+                }
+              )
             );
+            //* update messages cache pessimistically end
           }
         } catch (err) {
           patchResult1.undo();

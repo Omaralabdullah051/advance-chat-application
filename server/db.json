@@ -65,28 +65,9 @@
           "id": 5
         }
       ],
-      "message": "dibi na?",
-      "timestamp": 1662979531270,
+      "message": "vai.",
+      "timestamp": 1662980754968,
       "id": 1
-    },
-    {
-      "participants": "sumit@gmail.com-akash@learnwithsumit.com",
-      "users": [
-        {
-          "email": "sumit@gmail.com",
-          "name": "sumit",
-          "id": 6
-        },
-        {
-          "email": "akash@learnwithsumit.com",
-          "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
-          "name": "Akash Ahmed",
-          "id": 2
-        }
-      ],
-      "message": "ki khobor?",
-      "timestamp": 1662979515000,
-      "id": 2
     }
   ],
   "messages": [
@@ -103,43 +84,9 @@
         "name": "sumit",
         "id": 5
       },
-      "message": "number dey?",
-      "timestamp": 1662979497392,
+      "message": "vai.",
+      "timestamp": 1662980754968,
       "id": 1
-    },
-    {
-      "conversationId": 2,
-      "sender": {
-        "email": "sumit@gmail.com",
-        "name": "sumit",
-        "id": 6
-      },
-      "receiver": {
-        "email": "akash@learnwithsumit.com",
-        "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
-        "name": "Akash Ahmed",
-        "id": 2
-      },
-      "message": "ki khobor?",
-      "timestamp": 1662979515000,
-      "id": 2
-    },
-    {
-      "conversationId": 1,
-      "sender": {
-        "email": "sumit@gmail.com",
-        "name": "sumit",
-        "id": 6
-      },
-      "receiver": {
-        "email": "sumit@email.com",
-        "password": "$2a$10$ES2MgnA22BkiC00QJEUC.uggoOuOwBOt8YLu1uRU3O0VxahC7/cJ2",
-        "name": "sumit",
-        "id": 5
-      },
-      "message": "dibi na?",
-      "timestamp": 1662979531270,
-      "id": 3
     }
   ]
 }
