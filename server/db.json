@@ -41,46 +41,15 @@
       "password": "$2a$10$Vaa2v7y7wLeE.1tQjxhJ9OtCySieG45oDSfAoQNYCuxPKPOBZ14X2",
       "name": "text",
       "id": 7
+    },
+    {
+      "email": "sumon@mon.com",
+      "password": "$2a$10$6lCL8t2KkKwjXwM2gXkMiewi68UqjX35PIBTb5bcC4i8c0w1GRbze",
+      "name": "Sumon",
+      "id": 8
     }
   ],
   "conversations": [
-    {
-      "id": 1,
-      "participants": "sumit@gmail.com-akash@learnwithsumit.com",
-      "users": [
-        {
-          "email": "sumit@gmail.com",
-          "name": "sumit",
-          "id": 6
-        },
-        {
-          "email": "akash@learnwithsumit.com",
-          "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
-          "name": "Akash Ahmed",
-          "id": 2
-        }
-      ],
-      "message": "ki obostha?",
-      "timestamp": 1662899607005
-    },
-    {
-      "id": 2,
-      "participants": "sumit@gmail.com-saad@learnwithsumit.com",
-      "users": [
-        {
-          "email": "sumit@gmail.com",
-          "name": "Sumit Saha",
-          "id": 1
-        },
-        {
-          "email": "akash@learnwithsumit.com",
-          "name": "Saad Hasan",
-          "id": 3
-        }
-      ],
-      "message": "How are you?",
-      "timestamp": 1661976143678
-    },
     {
       "participants": "sumit@gmail.com-sumit@email.com",
       "users": [
@@ -96,46 +65,33 @@
           "id": 5
         }
       ],
-      "message": "busy?",
-      "timestamp": 1662961936125,
-      "id": 3
+      "message": "dibi na?",
+      "timestamp": 1662979531270,
+      "id": 1
+    },
+    {
+      "participants": "sumit@gmail.com-akash@learnwithsumit.com",
+      "users": [
+        {
+          "email": "sumit@gmail.com",
+          "name": "sumit",
+          "id": 6
+        },
+        {
+          "email": "akash@learnwithsumit.com",
+          "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
+          "name": "Akash Ahmed",
+          "id": 2
+        }
+      ],
+      "message": "ki khobor?",
+      "timestamp": 1662979515000,
+      "id": 2
     }
   ],
   "messages": [
     {
-      "id": 1,
       "conversationId": 1,
-      "sender": {
-        "email": "sumit@gmail.com",
-        "name": "Sumit Saha",
-        "id": 1
-      },
-      "receiver": {
-        "email": "akash@learnwithsumit.com",
-        "name": "Akash Ahmed",
-        "id": 2
-      },
-      "message": "Hello",
-      "timestamp": 1661976143557
-    },
-    {
-      "id": 2,
-      "conversationId": 1,
-      "sender": {
-        "email": "akash@learnwithsumit.com",
-        "name": "Akash Ahmed",
-        "id": 2
-      },
-      "receiver": {
-        "email": "sumit@gmail.com",
-        "name": "Sumit Saha",
-        "id": 1
-      },
-      "message": "How are you?",
-      "timestamp": 1661976143678
-    },
-    {
-      "conversationId": 3,
       "sender": {
         "email": "sumit@gmail.com",
         "name": "sumit",
@@ -147,26 +103,43 @@
         "name": "sumit",
         "id": 5
       },
-      "message": "Reply den na keno?",
-      "timestamp": 1662960413412,
+      "message": "number dey?",
+      "timestamp": 1662979497392,
+      "id": 1
+    },
+    {
+      "conversationId": 2,
+      "sender": {
+        "email": "sumit@gmail.com",
+        "name": "sumit",
+        "id": 6
+      },
+      "receiver": {
+        "email": "akash@learnwithsumit.com",
+        "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
+        "name": "Akash Ahmed",
+        "id": 2
+      },
+      "message": "ki khobor?",
+      "timestamp": 1662979515000,
+      "id": 2
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@gmail.com",
+        "name": "sumit",
+        "id": 6
+      },
+      "receiver": {
+        "email": "sumit@email.com",
+        "password": "$2a$10$ES2MgnA22BkiC00QJEUC.uggoOuOwBOt8YLu1uRU3O0VxahC7/cJ2",
+        "name": "sumit",
+        "id": 5
+      },
+      "message": "dibi na?",
+      "timestamp": 1662979531270,
       "id": 3
-    },
-    {
-      "conversationId": 3,
-      "sender": {
-        "email": "sumit@gmail.com",
-        "name": "sumit",
-        "id": 6
-      },
-      "receiver": {
-        "email": "sumit@email.com",
-        "password": "$2a$10$ES2MgnA22BkiC00QJEUC.uggoOuOwBOt8YLu1uRU3O0VxahC7/cJ2",
-        "name": "sumit",
-        "id": 5
-      },
-      "message": "busy?",
-      "timestamp": 1662961936125,
-      "id": 4
     }
   ]
 }

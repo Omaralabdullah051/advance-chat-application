@@ -22,7 +22,7 @@ export default function Options({ info }) {
     e.preventDefault();
 
     editConversation({
-      id: info.conversationId,
+      id: info?.conversationId,
       sender: loggedInUser?.email,
       data: {
         participants: `${loggedInUser.email}-${participantUser.email}`,
