@@ -1,22 +1,22 @@
+import gravatarUrl from "gravatar-url";
+import moment from "moment";
+import { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   conversationsApi,
   useGetConversationsQuery,
 } from "../../features/conversations/conversationsApi";
+import getPartnerInfo from "../../utils/getPartnerInfo";
 import Error from "../ui/Error";
 import ChatItem from "./ChatItem";
-import moment from "moment";
-import getPartnerInfo from "../../utils/getPartnerInfo";
-import gravatarUrl from "gravatar-url";
-import { Link } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useState } from "react";
-import { useEffect } from "react";
 
 export default function ChatItems() {
   const { user } = useSelector((state) => state.auth) || {};
   const { email } = user || {};
-  const { data, isLoading, isError, error } = useGetConversationsQuery(email);
+  const { data, isLoading, isError, error } =
+    useGetConversationsQuery(email) || {};
   const { data: conversations, totalCount } = data || {};
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -35,7 +35,7 @@ export default function ChatItems() {
         })
       );
     }
-  }, [email, dispatch, page]);
+  }, [page, email, dispatch]);
 
   useEffect(() => {
     if (totalCount > 0) {
@@ -60,25 +60,26 @@ export default function ChatItems() {
       </li>
     );
   } else if (!isLoading && !isError && conversations?.length === 0) {
-    content = <li className="m-2 text-center">No coversations found!</li>;
+    content = <li className="m-2 text-center">No conversations found!</li>;
   } else if (!isLoading && !isError && conversations?.length > 0) {
     content = (
       <InfiniteScroll
-        dataLength={conversations?.length}
+        dataLength={conversations.length}
         next={fetchMore}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
         height={window.innerHeight - 129}
       >
-        {conversations.map((conversation) => {
+        {conversations?.map((conversation) => {
           const { id, message, timestamp } = conversation;
           const { email } = user || {};
           const { name, email: partnerEmail } = getPartnerInfo(
             conversation.users,
             email
           );
+
           return (
-            <li key={id}>
+            <li key={Math.random()}>
               <Link to={`/inbox/${id}`}>
                 <ChatItem
                   avatar={gravatarUrl(partnerEmail, {

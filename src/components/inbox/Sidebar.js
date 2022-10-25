@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import ChatItems from "./ChatIItems";
 import Modal from "./Modal";
 // import Blank from "./Blank";
@@ -9,10 +10,11 @@ export default function Sidebar() {
   const controlModal = () => {
     setOpened((prevState) => !prevState);
   };
-
+  const name = useSelector((state) => state.auth.user.name);
   return (
     <div className="w-[100px] border-r border-t-0 border-gray-300 lg:col-span-1 md:w-full">
-      <div className="h-[65px] text-center text-grey-500 p-4 border-b border-gray-300 flex md:justify-end justify-center">
+      <div className="h-[65px] text-center text-grey-500 p-4 border-b border-gray-300 flex  justify-between">
+        <h2 className="font-bold text-xl capitalize text-gray-700">{name}</h2>
         <svg
           viewBox="0 0 194.436 194.436"
           className="w-5 h-5 text-grey-500 cursor-pointer"
@@ -33,7 +35,7 @@ C139.689,120.449,136.331,117.092,132.189,117.092z"
           />
         </svg>
       </div>
-      <div className="h-[calc(100vh_-_129px)]">
+      <div className="overflow-auto h-[calc(100vh_-_129px)]">
         <ChatItems />
       </div>
       {/* <Blank /> */}

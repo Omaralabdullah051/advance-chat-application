@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Footer from "./components/footer/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import useAuthCheck from "./hooks/useAuthCheck";
@@ -48,6 +49,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }

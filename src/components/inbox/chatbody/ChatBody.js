@@ -8,7 +8,12 @@ import Options from "./Options";
 
 export default function ChatBody() {
   const { id } = useParams();
-  const { data: messages, isLoading, isError, error } = useGetMessagesQuery(id);
+  const {
+    data: { data: messages, totalCount } = {},
+    isLoading,
+    isError,
+    error,
+  } = useGetMessagesQuery(id);
 
   // decide what to render
   let content = null;
@@ -18,7 +23,7 @@ export default function ChatBody() {
   } else if (!isLoading && isError) {
     content = (
       <div>
-        <Error messages={error?.data} />
+        <Error message={error?.data} />
       </div>
     );
   } else if (!isLoading && !isError && messages?.length === 0) {
@@ -27,7 +32,7 @@ export default function ChatBody() {
     content = (
       <>
         <ChatHead message={messages[0]} />
-        <Messages messages={messages} />
+        <Messages messages={messages} totalCount={totalCount} />
         <Options info={messages[0]} />
       </>
     );
@@ -35,10 +40,7 @@ export default function ChatBody() {
 
   return (
     <div className="w-full lg:col-span-2 lg:block">
-      <div className="w-full grid conversation-row-grid">
-        {content}
-        {/* <Blank /> */}
-      </div>
+      <div className="w-full grid conversation-row-grid">{content}</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logoImage from "../assets/images/lws-logo-light.svg";
+import logoImage from "../assets/images/favicon.png";
 import { useRegisterMutation } from "../features/auth/authApi";
 import Error from "../components/ui/Error";
 
@@ -52,7 +52,7 @@ export default function Register() {
           <div>
             <Link to="/">
               <img
-                className="mx-auto h-12 w-auto"
+                className="mx-auto h-24 w-auto"
                 src={logoImage}
                 alt="Learn with sumit"
               />
