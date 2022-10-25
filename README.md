@@ -5,32 +5,32 @@
 
 # Chat Application
 
-Livesite link: [Chat Application](https://book-mart-94d39.web.app/).
+Livesite link: [Chat Application](https://chat-application-realtime.netlify.app/).
 
-<!-- ## Overall project specification:
+## Overall project specification:
 
-In the overall project, you will found:
+In the overall project, I added this features:
 
-- I implemented authentication system to identify users by json auth.
+- I implemented authentication system to identify users.
 
-- I protected the Checkout page with help of authentication process.
+- A user can create conversations with other users in real time.
 
-- I added many features and services for stocking inventory items.
+- A user can send and receive messages in real time.
 
-- I implemented JWT to ensure the authenticity and verify users.
+- Optimistic and Pessimistic cache update are included.
 
-- I added a Blogs page and write some significant questions answers.
+- Unnecessary API requests will not occur.
 
 ## List of teachnologies & functionality that I used and implemented in my project:
 
 In the overall project, you will found:
 
-- I used React Router DOM to set up Routes in my overall project.
+- I used json-server-auth to implement authentication.
 
-- I implemented firebase & React Firebase Hooks to simplify my application's authentication system.
+- I used json-server to store all data.
 
-- I used tailwind css with some customization in index.css and config file with some directives & flowbite.
+- I used rtk-query in my overall project.
 
-- I installed React Fontawesome & hero icons to add some icons & react-helmet-async to set dynamic title.
+- I used socket.io to listen data in real time.
 
-- I installed React toastify to add some toast & also sweetalert2 to use confirmation popup. -->
+- I used moment.js to display times in a human-readable format.
